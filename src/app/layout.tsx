@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import "./globals.css";
 import { TopBannerAd, LeftSideBannerAd, RightSideBannerAd } from "@/components/BannerAds";
 
@@ -14,6 +15,15 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="ko" className="dark">
+      <head>
+        {/* 구글 애드센스 공식 연동 스크립트 */}
+        <Script
+          async
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8742188217673300"
+          crossOrigin="anonymous"
+          strategy="afterInteractive"
+        />
+      </head>
       <body className="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-indigo-500 selection:text-white">
         {/* 1. 상단 가로 배너 광고 */}
         <TopBannerAd />
